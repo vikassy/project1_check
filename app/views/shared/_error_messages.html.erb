@@ -1,0 +1,10 @@
+<% if @user.errors.any? %>
+<h2><% pluralize(@user.errors.count,"error") %>
+Sign Up failed </h2>
+<p>These are the following errors you have made</p> 
+<% @user.errors.full_messages.each do |msg| %>
+<ul>
+<li><%= msg %></li>
+</ul>
+<% end %>
+<% end %>

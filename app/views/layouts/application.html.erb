@@ -12,9 +12,13 @@
 <li><%= link_to "About" , about_path %></li>
 <li><%= link_to "Help" , help_path %></li>
 <li><%= link_to "Sign In " ,'#' %></li>
-<li><%= link_to "Sign Up" , '#' %></li> 
+<li><%= link_to "Sign Up" , signup_path %></li> 
 </ul>
+<%flash.each do |key ,value| %>
+<div class="flash <%= key %>"><%= value %></div>
+<% end %>
 <%= yield %>
-
+<%= debug(params) if Rails.env.development? %>
 </body>
+
 </html>
