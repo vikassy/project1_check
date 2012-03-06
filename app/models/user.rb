@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
 attr_accessible :name , :email , :profession , :qualification , :password , :password_confirmation 
 has_secure_password
+has_many :microposts , dependent: :destroy 
 before_save :create_remember_token
 
 correct_email = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -31,6 +32,11 @@ validates :password , presence: true ,
   def create_remember_token 
     self.remember_token = SecureRandom.urlsafe_base64
   end
+  def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    microposts
+  end
+
 
 
 end

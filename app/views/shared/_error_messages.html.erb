@@ -1,8 +1,8 @@
-<% if @user.errors.any? %>
-<h2><% pluralize(@user.errors.count,"error") %>
-Sign Up failed </h2>
+<% if object.errors.any? %>
+<h2><% pluralize(object.errors.count,"error") %>
+Prohibited this </h2><%= object.class.to_s.underscore.humanize.downcase %>
 <p>These are the following errors you have made</p> 
-<% @user.errors.full_messages.each do |msg| %>
+<% object.errors.full_messages.each do |msg| %>
 <ul>
 <li><%= msg %></li>
 </ul>
