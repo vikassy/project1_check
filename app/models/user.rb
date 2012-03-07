@@ -10,6 +10,8 @@
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean         default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -17,6 +19,7 @@ class User < ActiveRecord::Base
 attr_accessible :name , :email , :profession , :qualification , :password , :password_confirmation 
 has_secure_password
 has_many :microposts , dependent: :destroy 
+has_many :blogs ,dependent: :destroy 
 before_save :create_remember_token
 
 correct_email = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
