@@ -3,23 +3,23 @@ namespace :db do
   task populate: :environment do
     admin = User.create!(name: "Vikas S Yaligar",
  			 email: "vikasyaligar.it@gmail.com",
-			 password: "vikasyaligar94",
-			 password_confirmation: "vikasyaligar94")
+			 password: "foobar",
+			 password_confirmation: "foobar")
     admin.toggle!(:admin)
     admin = User.create!(name: "Ketan Pandhi",
  			 email: "ketanpandhi13@gmail.com",
-			 password: "ketan13pandhi",
-			 password_confirmation: "ketan13pandhi")
+			 password: "foobar",
+			 password_confirmation: "foobar")
     admin.toggle!(:admin)
     admin = User.create!(name: "Mithun Bylappa",
  			 email: "mithun_007@live.com",
-			 password: "mithun93by",
-			 password_confirmation: "mithun93by")
+			 password: "foobar",
+			 password_confirmation: "foobar")
     admin.toggle!(:admin)
     admin = User.create!(name: "Karan Sheoran",
  			 email: "sheorankaran11@gmail.com",
-			 password: "karanshe93",
-			 password_confirmation: "karanshe93")
+			 password: "foobar",
+			 password_confirmation: "foobar")
     admin.toggle!(:admin)
 end
 end
