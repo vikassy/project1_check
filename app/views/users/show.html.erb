@@ -1,19 +1,43 @@
-<h1>Welcome <%= @user.name %></h1>
-<h1><%= gravatar_for @user %><%= @user.email %></h1>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<td class="sidebar round">
+<strong>Total Posts:</strong><%= @user.microposts.count+@user.forums.count+@user.comments.count %><br />
+<strong>Email:</strong><%= @user.email%><br />
+<% if @user.profession %>
+<strong>Profession:</strong><%= @user.profession%><br />
+<%end %>
+<% if @user.qualification %>
+<strong>Qualification:</strong><%= @user.qualification %><br />
+<% end %>
+</td>
 <table class="profile">
 <tr>
 <td class="main">
 <% if @user.microposts.any? %>
+<h2><%=@user.name%> Posts</h2>
 <table class ="microposts">
-<%= render @microposts %>
-</table>
+<% @microposts.each do |f| %>
+<%= f.content %><br />
+<% if f.coms.any? %>
+<br />Comments<br />
+<% end %>
+<% f.coms.each do |k| %><br />
+    <%= link_to gravatar_for(k.user), k.user %><br />
+    <span class="user">
+      <%= link_to k.user.name, k.user %>:
+    </span>
+<%= k.comments %> <br />
+<% end %><br /><br/>
+<% end %>
 <%= will_paginate @microposts %>
 <% end %>
-</td>
-<td class="sidebar round">
-<strong>Name</strong><%= @user.name %><br />
-<strong>URL</strong><%= link_to user_path(@user) , @user %><br />
-<strong>Microposts</strong><%= @user.microposts.count %>
-</td>
 </tr> 
 </table>

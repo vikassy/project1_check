@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
 attr_accessible :name , :email , :profession , :qualification , :password , :password_confirmation 
 has_secure_password
 has_many :microposts , dependent: :destroy 
-has_many :blogs ,dependent: :destroy 
+has_many :forums , dependent: :destroy 
+has_many :comments , dependent: :destroy 
+has_many :coms , dependent: :destroy
 before_save :create_remember_token
 
 correct_email = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

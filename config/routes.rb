@@ -3,10 +3,14 @@ Project1Check::Application.routes.draw do
 resources :users
 resources :sessions , only: [:new , :create ,:destroy]
 resources :microposts , only: [:create , :destroy]
-resources :blogs , only:[:create ,:destroy]
+resources :coms 
+#resources :blogs , only:[:create ,:destroy]
+resources :comments 
+resources :forums 
   #get "users/new"
-  match '/signin', to: 'sessions#new'
-  match '/signout' , to: 'sessions#destroy' , via: :delete 
+ root :to => 'pages#home'
+  match '/signin', to: "sessions#new"
+  match '/signout' ,to: 'sessions#destroy' , via: :delete 
   #get "users/show"
   match "/signup" , to: "users#new"
   match "/help"   , to: "pages#help"
@@ -67,7 +71,6 @@ resources :blogs , only:[:create ,:destroy]
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
- root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 

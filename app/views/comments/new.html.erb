@@ -1,0 +1,13 @@
+<h1> Reply</h1>
+<%= form_for @comment do |f| %>
+<div class="row">
+  <div class="span6 offset3">
+<div class="field">
+<%= f.label :content %>
+<%= f.text_area:content %>
+</div>
+</div>
+</div>
+<%= f.hidden_field :forum_id %>
+<%= f.submit "Submit" %>
+<% end %>

@@ -1,0 +1,20 @@
+<h1> Index </h1>
+<p><% @forum.each do |f| %>
+<td class="micropost">
+<div class="dummy">
+</title>
+Posted By
+<a href="<%= user_path(f.user) %>">
+<%= gravatar_for(f.user, size: 30) %></a>
+<%= f.user.name %>
+<h2><%= f.title %></h2><br />
+<td><%= link_to 'Show', f %>   </td><br />
+<% if current_user.admin? || current_user?(f.user) %>
+<td><%= link_to "delete" , f , method: :delete,confirm: "You Sure ?",title: f.content %></td><br />
+<% end %>
+<span class="timespamp">
+Posted <%= time_ago_in_words(f.created_at) %> ago .
+</span><br /><br /></div>
+<% end %>
+<%= link_to "Make new Post" , new_forum_path %>
+</p>

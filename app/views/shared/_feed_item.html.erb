@@ -1,9 +1,7 @@
-<tr id="<%= feed_item.id %>">
+<tr>
   <td class="gravatar">
     <%= link_to gravatar_for(feed_item.user), feed_item.user %>
-  </td>
-  <td class="micropost">
-    <span class="user">
+    <span class="">
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
     <span class="content"><%= feed_item.content %></span>
@@ -15,6 +13,7 @@
 <td>
       <%= link_to "delete", feed_item, method: :delete,
                                        confirm: "You sure?",
-                                       title: feed_item.content %>
+                                       title: feed_item.content %><br /><br />
+
 </tr>
 <% end %>

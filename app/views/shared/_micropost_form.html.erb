@@ -1,9 +1,15 @@
 <%= form_for(@micropost) do |f| %>
+<div class="row">
+  <div class="span6 offset3">
 <%= render 'shared/error_messages',object: f.object %>
+<div class="center">
 <div class="field">
-<%= f.text_area:content %>
+<%= f.text_field:content %>
 </div>
 <div class="actions">
 <%= f.submit "Submit" %>
+</div>
+</div>
+</div>
 </div>
 <% end %>

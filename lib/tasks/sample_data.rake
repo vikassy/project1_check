@@ -1,13 +1,30 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    Rake::Task['db:reset'].invoke
     admin = User.create!(name: "Vikas S Yaligar",
  			 email: "vikasyaligar.it@gmail.com",
-			 password: "foobar",
-			 password_confirmation: "foobar")
+			 password: "vikasyaligar94",
+			 password_confirmation: "vikasyaligar94")
     admin.toggle!(:admin)
-    User.create!(name: "Example User",
+    admin = User.create!(name: "Ketan Pandhi",
+ 			 email: "ketanpandhi13@gmail.com",
+			 password: "ketan13pandhi",
+			 password_confirmation: "ketan13pandhi")
+    admin.toggle!(:admin)
+    admin = User.create!(name: "Mithun Bylappa",
+ 			 email: "mithun_007@live.com",
+			 password: "mithun93by",
+			 password_confirmation: "mithun93by")
+    admin.toggle!(:admin)
+    admin = User.create!(name: "Karan Sheoran",
+ 			 email: "sheorankaran11@gmail.com",
+			 password: "karanshe93",
+			 password_confirmation: "karanshe93")
+    admin.toggle!(:admin)
+end
+end
+=begin    User.create!(name: "Example User",
+end
                  email: "example@railstutorial.org",
                  password: "foobar",
                  password_confirmation: "foobar")
@@ -18,13 +35,8 @@ namespace :db do
       User.create!(name: name,
                    email: email,
                    password: password,
-                   password_confirmation: password)
-    users = User.all(limit: 6)
-    50.times do
-      content = Faker::Lorem.sentence(5)
-      users.each { |user| user.microposts.create!(content: content) }
-end   
+                   password_confirmation: password) 
  end
   end
 end
-
+=end

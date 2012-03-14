@@ -1,17 +1,21 @@
 <% if signed_in? %>
-<table class="front">
 <tr>
 <td class="main">
-<h1 class="micropost">What's Up ?</h1>
+<h1>What's Up ?</h1>
 <%= render 'shared/micropost_form' %>
 <%= render 'shared/feed' %>
-</td>
-<td class="sidebar round">
-<%= render 'shared/user_info' %>
-</td>
 </tr>
 </table>
 <% else %>
-<h1>Welcome to Rails on Ruby Disscussion Forum </h1>
-<p>Please find the details here </p>
+<div style="text-align:center;"><h1>Welcome to Ruby on Rails Diccussion Forum </h1></div>
+<h2>What do we do here ? <h2>
+<p>As the name suggests , this is a diccussion forum , where diccussions will be carried out on how to develop a basic website like this one . We will provide step-wise instructions , to attain basic understanding on web development .
+<h2> Advantages ? </h2>
+<ul>
+<li>Help's you to make basic websites</li>
+<li>Will hold diccussions not only on ruby on rails , but also on different scripting languages like python,javascript,....</li>
+<li>Will try different techniques on how to crack simple webpages </li>
+</ul>
+</p> 
+<p> </p>
 <% end %>

@@ -1,33 +1,45 @@
 <h1>Sign Up</h1>
 <p>
+<div class="row">
+  <div class="span6 offset3">
 <%= form_for(@user) do |f| %>
 <%= render 'shared/error_messages' , object: f.object %>
 <div class="field">
-<%= f.label :name ,"Name*"%><br />
-<%= f.text_field :name %>
+<p>Name*</p>
+<%= f.text_field :name %><br />
+<br />
 </div>
 <div class="field">
-<%= f.label :email ,"Email*"%><br />
-<%= f.text_field :email %>
+<p>Email*</p>
+<%= f.text_field :email %><br />
+<br />
 </div>
 <div class="field">
-<%= f.label :password ,"Password*"%><br />
-<%= f.password_field :password%>
+<p>Password*</p>
+<%= f.password_field :password%><br />
+<br />
 </div>
 <div class="field">
-<%= f.label :password_confirmation ,"Confirm Password*" %><br />
-<%= f.password_field :password_confirmation %>
+<p>Confirm Password*</p>
+<%= f.password_field :password_confirmation %><br />
+<br />
 </div>
 <div class="field">
-<%= f.label :profession ,"Profession" %><br /><pre>Eg-Student,Web developer,etc<br />
-<%= f.text_field :profession %></div>
+<p>Profession</p>
+<%= f.text_field :profession %><br />
+<br />
+</div>
 <div class="field">
-<%= f.label :qualification,"Qualification/Current Position" %><br /><pre>Eg- BTech(1) for 1st year BTech.<br />
-<%= f.text_field :qualification %>    
+<p>Qualification</p>
+<br /><pre>Eg- BTech(1) for 1st year BTech.<br />
+<%= f.text_field :qualification %>  <br />  
+<br />
 </div>
 <div class="actions">
 <%= f.submit "Sign Up" %>
 </div>
 <% end %>
+</div>
+</div>
 * means compulsory 
 </p>

@@ -9,12 +9,13 @@ before_filter :admin_user,     only: :destroy
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.paginate(page: params[:page] ,per_page: 6)
+    @forums = @user.microposts.paginate(page: params[:page] ,per_page: 6)
     @title = @user.name
   end
   def index  
     @title = "All users"
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page:14)
   end
 
   def create 
@@ -29,7 +30,7 @@ before_filter :admin_user,     only: :destroy
   end
  
   def edit 
-    @user = User.find(params[:id])
+    @user  = User.find(params[:id])
     @title = "Edit user"
   end
 

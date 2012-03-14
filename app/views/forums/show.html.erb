@@ -1,0 +1,23 @@
+<h1> Contents </h1>
+<h2>Title</h2><%= @forum.title %><br /><br />
+<h2>Content</h2><%= @forum.content %><br /><br />
+<%= link_to "Reply", new_comment_url(id: @forum.id) %>
+<% if @forum.comments.any? %>
+<h2> Replies </h2>	
+ <table class="microposts">
+<% @forum.comments.each do |l| %>
+<tr id="<%= l.id %>">
+<td>
+    <%= link_to gravatar_for(l.user), l.user %><br />
+    <span class="user">
+      <%= link_to l.user.name, l.user %>
+    </span>
+    <span class="content"><%= l.content %></span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(l.created_at) %> ago.
+    </span>
+</td>
+</tr>
+<% end %>
+<% end %>
+</table>
