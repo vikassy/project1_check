@@ -26,6 +26,7 @@
 <table class ="microposts">
 <% @microposts.each do |f| %>
 <%= f.content %><br />
+<%= link_to "Comment", new_com_url(id: f.id) %>
 <% if f.coms.any? %>
 <br />Comments<br />
 <% end %>
